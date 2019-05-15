@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form id="uploadForm" enctype="multipart/form-data">
+    <input id="file" type="file" name="file"/>
+    <button id="upload" type="button">upload</button>
+</form>
+<script src="jquery.js"></script>
+<script>
+    $.ajax({
+        url: '/upload',
+        type: 'POST',
+        cache: false,
+        data: new FormData($('#uploadForm')[0]),
+        processData: false,
+        contentType: false
+    }).done(function(res) {
+    }).fail(function(res) {});
+</script>
+
+</body>
+</html>
